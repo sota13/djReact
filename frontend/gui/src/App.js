@@ -1,11 +1,18 @@
-import './App.css';
-import 'antd/dist/antd.css'; 
+import 'antd/dist/antd.css';
 import CustomLayout from './containers/Layout'
-
+import { BrowserRouter as Router } from 'react-router-dom'
+import BaseRouter, { BrowserRouter } from './routes'
 function App() {
   return (
     <div className="App">
-      <CustomLayout/>
+
+      <Router>
+        <CustomLayout>
+
+          <BaseRouter/>
+        
+        </CustomLayout>
+      </Router>
 
     </div>
   );
