@@ -6,6 +6,7 @@ import CustomForm from "../components/Form"
 
 
 
+
 class ArticleListView extends Component {
 
   state = {
@@ -32,7 +33,11 @@ class ArticleListView extends Component {
 
         <Articles data={this.state.Articles} />
         <h2>Create A New Article</h2>
-        <CustomForm/>
+        <CustomForm
+        requistType= 'post'
+        articleID= {null}
+        btnText= 'create'
+        />
 
 
       </div>
