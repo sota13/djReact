@@ -14,7 +14,7 @@ class CustomForm extends Component {
         switch (requistType ) {
 
             case 'post':
-               return axios.post("http://127.0.0.1:8000/api/create" , {
+               return axios.post("http://127.0.0.1:8000/api/create/" , {
                     title: title,
                     content: content
                 })
@@ -28,7 +28,7 @@ class CustomForm extends Component {
 
 
             case 'put':
-               return axios.put(`http://127.0.0.1:8000/api/${articleID}/update` , {
+               return axios.put(`http://127.0.0.1:8000/api/${articleID}/update/` , {
                     title: title,
                     content: content
                 })

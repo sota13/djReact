@@ -38,7 +38,7 @@ class ArticleDetailView extends Component {
   handelDelete = (event) => {
     event.preventDefault();
     const ArticleID = this.props.match.params.ArticleID;
-    axios.delete(`http://127.0.0.1:8000/api/${ArticleID}/delete`)
+    axios.delete(`http://127.0.0.1:8000/api/${ArticleID}/delete/`)
 
 
   }  
