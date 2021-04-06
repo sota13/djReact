@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import CustomForm from "../components/Form"
 import axios from "axios";
 import { Card, Button } from 'antd';
@@ -38,10 +39,19 @@ class ArticleDetailView extends Component {
   handelDelete = (event) => {
     event.preventDefault();
     const ArticleID = this.props.match.params.ArticleID;
+    axios.defaults.headers = {
+      "Content-Type": "application/json",
+      Authorization:`Token ${this.props.token}`
+    };
     axios.delete(`http://127.0.0.1:8000/api/${ArticleID}/delete/`)
+    .then(res =>{
+      if (res.status === 204) {
+        this.props.history.push('/');
+      }
+    })
 
 
-  }  
+  };  
 
 
 
@@ -72,4 +82,11 @@ class ArticleDetailView extends Component {
 
 }
 
-export default ArticleDetailView;
+
+
+const mapStateToProps = state => {
+  return {
+    token: state.token 
+  }
+}
+export default connect(mapStateToProps) (ArticleDetailView);
